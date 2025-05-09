@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Naples - Magazine de voyage familial</title>
+  <link href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #fdfdfd;
+    }
+    header {
+      background-color: #0077cc;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #eee;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 10px;
+      color: #0077cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1, h2, h3 {
+      color: #0077cc;
+    }
+    .carte {
+      height: 500px;
+      margin: 20px 0;
+    }
+    .bouton-carte {
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    footer {
+      background: #eee;
+      color: #333;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Votre magazine familial : Naples août 2025</h1>
+  <p>Un programme sur-mesure pour des vacances locales, gourmandes et inoubliables</p>
+</header>
+
+<nav>
+  <a href="#sommaire">Sommaire</a>
+  <a href="#fiche">Fiche pratique</a>
+  <a href="#jour1">Jour 1</a>
+  <a href="#jour2">Jour 2</a>
+  <a href="#jour3">Jour 3</a>
+  <a href="#jour3bis">Jour 3 bis (alternative Capri)</a>
+  <a href="#jour4">Jour 4</a>
+  <a href="#jour5">Jour 5</a>
+  <a href="#sinon">Sinon, Naples c'est aussi...</a>
+  <a href="#carte">Carte interactive</a>
+</nav>
+
+<section id="sommaire">
+  <h2>Sommaire</h2>
+  <ul>
+    <li><a href="#fiche">Fiche pratique (infos utiles, métro...)</a></li>
+    <li><a href="#jour1">Jour 1 : Découverte du cœur de Naples</a></li>
+    <li><a href="#jour2">Jour 2 : Pompéi et le Vésuve</a></li>
+    <li><a href="#jour3">Jour 3 : Procida, l'île colorée</a></li>
+    <li><a href="#jour3bis">Jour 3 bis (alternative) : Capri, l'île chic</a></li>
+    <li><a href="#jour4">Jour 4 : Culture napolitaine et saveurs locales</a></li>
+    <li><a href="#jour5">Jour 5 : Journée libre et souvenirs</a></li>
+    <li><a href="#sinon">Sinon, Naples c'est aussi...</a></li>
+    <li><a href="#carte">Carte interactive du séjour</a></li>
+  </ul>
+</section>
+
+<section id="fiche">
+  <h2>Fiche pratique</h2>
+  <h3>📍 Adresse de votre hôtel :</h3>
+  <p>Grand Hotel Europa<br> Corso Meridionale, 14, 80143 Napoli NA, Italie</p>
+
+  <h3>🚇 Plan du métro de Naples :</h3>
+  <p><a href="https://www.anm.it/images/stories/pdf/Mappa_Metropolitana_ANM.pdf" target="_blank" class="bouton-carte">Voir le plan du métro</a></p>
+
+  <h3>🛫 Comment rejoindre l’hôtel :</h3>
+  <ul>
+    <li>Depuis l’aéroport : Alibus (navette directe) jusqu’à la gare centrale (Piazza Garibaldi).</li>
+    <li>Depuis la gare : à pied 5 minutes jusqu’à l’hôtel.</li>
+  </ul>
+
+  <h3>📱 Applications utiles :</h3>
+  <ul>
+    <li><strong>Google Maps</strong> (navigation en temps réel)</li>
+    <li><strong>Moovit</strong> (transports en commun)</li>
+    <li><strong>Visit Naples</strong> (guide touristique officiel)</li>
+  </ul>
+
+  <h3>💬 Expressions italiennes utiles :</h3>
+  <ul>
+    <li>Bonjour : <i>Buongiorno</i></li>
+    <li>Merci : <i>Grazie</i></li>
+    <li>Combien ça coûte ? : <i>Quanto costa?</i></li>
+    <li>Où est ... ? : <i>Dove si trova ... ?</i></li>
+  </ul>
+
+</section>
+<section id="jour1">
+  <h2>Jour 1 - Découverte du cœur de Naples</h2>
+
+  <h3>Matin</h3>
+  <ul>
+    <li><strong>Spaccanapoli</strong> : baladez-vous dans cette rue mythique qui coupe Naples en deux.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8497&mlon=14.2584#map=16/40.8497/14.2584" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+    <li><strong>Duomo di San Gennaro</strong> : la cathédrale emblématique.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8530&mlon=14.2597#map=17/40.8530/14.2597" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+
+  <h3>Déjeuner</h3>
+  <ul>
+    <li><strong>Pizzeria Di Matteo</strong> : l’une des meilleures pizzas de Naples.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8523&mlon=14.2578#map=17/40.8523/14.2578" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+
+  <h3>Après-midi</h3>
+  <ul>
+    <li><strong>Napoli Sotterranea</strong> : découvrez les souterrains de la ville.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8520&mlon=14.2575#map=17/40.8520/14.2575" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+    <li><strong>Cloître de Santa Chiara</strong> : son jardin de majolique est magnifique.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8476&mlon=14.2565#map=17/40.8476/14.2565" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+
+  <h3>Goûter</h3>
+  <ul>
+    <li><strong>Pasticceria Scaturchio</strong> : goûtez la sfogliatella.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8469&mlon=14.2582#map=17/40.8469/14.2582" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+
+  <h3>Soirée</h3>
+  <ul>
+    <li><strong>Piazza Bellini</strong> : apéritif en terrasse dans ce quartier animé.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8515&mlon=14.2569#map=17/40.8515/14.2569" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+
+</section>
+
+<section id="jour2">
+  <h2>Jour 2 - Pompéi et le Vésuve</h2>
+
+  <h3>Matin</h3>
+  <ul>
+    <li><strong>Départ pour Pompéi</strong> en train Circumvesuviana (gare de Piazza Garibaldi).<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8518&mlon=14.2710#map=16/40.8518/14.2710" target="_blank" class="bouton-carte">Voir la gare</a></li>
+    <li><strong>Visite libre du site archéologique de Pompéi</strong> (prévoir 3 heures).<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.7485&mlon=14.4860#map=15/40.7485/14.4860" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+
+  <h3>Déjeuner</h3>
+  <ul>
+    <li><strong>Ristorante Caupona</strong> (inspiré d’une auberge romaine antique).<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.7492&mlon=14.4871#map=17/40.7492/14.4871" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+
+  <h3>Après-midi</h3>
+  <ul>
+    <li><strong>Excursion au Vésuve</strong> (accès en navette + randonnée finale de 30 minutes).<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8224&mlon=14.4289#map=13/40.8224/14.4289" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+
+  <h3>Soirée</h3>
+  <ul>
+    <li><strong>Dîner tranquille autour de la gare Garibaldi</strong>.<br>
+      Suggestions : <strong>Trattoria La Cantina dei Mille</strong> ou <strong>Osteria da Antonio</strong>.</li>
+  </ul>
+
+</section>
+<section id="jour3">
+  <h2>Jour 3 - Procida ou Capri (au choix)</h2>
+
+  <h3>Option 1 : Procida</h3>
+  <ul>
+    <li><strong>Départ en ferry pour Procida</strong> (Port de Naples, Molo Beverello).<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8372&mlon=14.2527#map=16/40.8372/14.2527" target="_blank" class="bouton-carte">Voir le port</a></li>
+    <li><strong>Balade à Marina Corricella</strong> : maisons colorées emblématiques.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.7593&mlon=14.0309#map=17/40.7593/14.0309" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+    <li><strong>Détente sur la plage Chiaiolella</strong>.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.7543&mlon=14.0163#map=17/40.7543/14.0163" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+
+  <h3>Option 2 : Capri</h3>
+  <ul>
+    <li><strong>Départ en ferry pour Capri</strong> (Port de Naples, Molo Beverello).<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8372&mlon=14.2527#map=16/40.8372/14.2527" target="_blank" class="bouton-carte">Voir le port</a></li>
+    <li><strong>Funiculaire pour Capri ville</strong>.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.5530&mlon=14.2426#map=17/40.5530/14.2426" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+    <li><strong>Balade aux Jardins d'Auguste</strong> + vue sur les Faraglioni.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.5464&mlon=14.2517#map=17/40.5464/14.2517" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+    <li><strong>Via Krupp</strong> (si ouverte) pour descendre jusqu'à Marina Piccola.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.5451&mlon=14.2493#map=17/40.5451/14.2493" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+
+  <h3>Déjeuner</h3>
+  <ul>
+    <li>Déjeuner de fruits de mer frais sur place :
+      <ul>
+        <li><strong>Procida</strong> : La Lampara<br>
+          <a href="https://www.openstreetmap.org/?mlat=40.7585&mlon=14.0307#map=17/40.7585/14.0307" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+        <li><strong>Capri</strong> : Ristorante Il Geranio<br>
+          <a href="https://www.openstreetmap.org/?mlat=40.5467&mlon=14.2524#map=17/40.5467/14.2524" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Retour à Naples</h3>
+  <ul>
+    <li>Fin d'après-midi libre à Naples.</li>
+  </ul>
+
+  <h3>Soirée</h3>
+  <ul>
+    <li>Glace artisanale chez <strong>Casa Infante</strong>.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8445&mlon=14.2505#map=17/40.8445/14.2505" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+</section>
+
+<section id="jour4">
+  <h2>Jour 4 - Produits locaux & marché</h2>
+
+  <h3>Matin</h3>
+  <ul>
+    <li><strong>Marché de la Pignasecca</strong> : marché alimentaire typique.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8458&mlon=14.2502#map=17/40.8458/14.2502" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+    <li><strong>Petit déjeuner</strong> avec sfogliatella et espresso.<br>
+      Suggestion : Bar Mexico Garibaldi.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8518&mlon=14.2715#map=17/40.8518/14.2715" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+
+  <h3>Visite d'une ferme / producteur</h3>
+  <ul>
+    <li><strong>Caseificio La Reggia</strong> : mozzarella di bufala DOP.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.9600&mlon=14.2140#map=14/40.9600/14.2140" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+    <li><strong>Producteur d'huile d'olive</strong> : Frantoio Torretta (près de Salerne).<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.6470&mlon=14.8065#map=14/40.6470/14.8065" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+
+  <h3>Déjeuner</h3>
+  <ul>
+    <li>Sur le trajet, dégustation dans une trattoria locale typique.</li>
+  </ul>
+
+  <h3>Après-midi</h3>
+  <ul>
+    <li>Retour libre à Naples. Temps pour shopping :
+      <ul>
+        <li><strong>Via Toledo</strong> (shopping local).<br>
+          <a href="https://www.openstreetmap.org/?mlat=40.8492&mlon=14.2526#map=17/40.8492/14.2526" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+        <li><strong>Galleria Umberto I</strong>.<br>
+          <a href="https://www.openstreetmap.org/?mlat=40.8404&mlon=14.2508#map=17/40.8404/14.2508" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Soirée</h3>
+  <ul>
+    <li>Restaurant spécialisé en fruits de mer : <strong>A Figlia d' 'o Marenaro</strong>.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8584&mlon=14.2732#map=17/40.8584/14.2732" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+</section>
+<section id="jour5">
+  <h2>Jour 5 - Visite et détente</h2>
+
+  <h3>Matin</h3>
+  <ul>
+    <li><strong>Quartier de Chiaia</strong> : balade élégante et bord de mer.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8337&mlon=14.2362#map=16/40.8337/14.2362" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+    <li><strong>Villa Comunale</strong> : parc historique en bord de mer.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8305&mlon=14.2328#map=17/40.8305/14.2328" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+
+  <h3>Déjeuner</h3>
+  <ul>
+    <li>Déjeuner léger sur le front de mer : sandwichs frais ou salades (ex: Gran Caffè La Caffettiera).<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8345&mlon=14.2356#map=17/40.8345/14.2356" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+
+  <h3>Après-midi</h3>
+  <ul>
+    <li>Derniers achats de souvenirs :
+      <ul>
+        <li><strong>Épicerie : Eccellenze Campane</strong> pour produits locaux.<br>
+          <a href="https://www.openstreetmap.org/?mlat=40.8486&mlon=14.2669#map=17/40.8486/14.2669" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+        <li><strong>Spécialité</strong> : tomates du Vésuve, huile d'olive, liqueurs locales, céramiques artisanales.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Soirée</h3>
+  <ul>
+    <li>Balade au coucher du soleil à <strong>Via Partenope</strong>.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8321&mlon=14.2470#map=17/40.8321/14.2470" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+    <li>Dîner libre ou option pizza d'exception : <strong>Concettina ai Tre Santi</strong>.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8592&mlon=14.2595#map=17/40.8592/14.2595" target="_blank" class="bouton-carte">Voir sur la carte</a></li>
+  </ul>
+</section>
+
+<section id="naplesaussi">
+  <h2>6. Sinon, Naples c'est aussi...</h2>
+
+  <ul>
+    <li><strong>Catacombes de San Gennaro</strong> : fascinantes.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8677&mlon=14.2582#map=17/40.8677/14.2582" target="_blank" class="bouton-carte">Voir sur la carte</a> |
+      <a href="https://fr.wikipedia.org/wiki/Catacombes_de_San_Gennaro" target="_blank">Wiki</a></li>
+
+    <li><strong>Teatro di San Carlo</strong> : opéra mythique.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8378&mlon=14.2495#map=17/40.8378/14.2495" target="_blank" class="bouton-carte">Voir sur la carte</a> |
+      <a href="https://fr.wikipedia.org/wiki/Théâtre_San_Carlo" target="_blank">Wiki</a></li>
+
+    <li><strong>Castel dell'Ovo</strong> : château en bord de mer.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8302&mlon=14.2425#map=17/40.8302/14.2425" target="_blank" class="bouton-carte">Voir sur la carte</a> |
+      <a href="https://fr.wikipedia.org/wiki/Castel_dell'Ovo" target="_blank">Wiki</a></li>
+
+    <li><strong>Complesso Monumentale di Santa Chiara</strong>.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8472&mlon=14.2556#map=17/40.8472/14.2556" target="_blank" class="bouton-carte">Voir sur la carte</a> |
+      <a href="https://fr.wikipedia.org/wiki/Santa_Chiara_(Naples)" target="_blank">Wiki</a></li>
+
+    <li><strong>Via San Gregorio Armeno</strong> : rues des crèches.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8510&mlon=14.2597#map=17/40.8510/14.2597" target="_blank" class="bouton-carte">Voir sur la carte</a> |
+      <a href="https://fr.wikipedia.org/wiki/Via_San_Gregorio_Armeno" target="_blank">Wiki</a></li>
+
+    <li><strong>Cimitero delle Fontanelle</strong> : lieu mystérieux.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8626&mlon=14.2497#map=17/40.8626/14.2497" target="_blank" class="bouton-carte">Voir sur la carte</a> |
+      <a href="https://fr.wikipedia.org/wiki/Cimetière_des_Fontanelle" target="_blank">Wiki</a></li>
+
+    <li><strong>Grotte de Seiano</strong> : passage antique secret.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8176&mlon=14.1907#map=17/40.8176/14.1907" target="_blank" class="bouton-carte">Voir sur la carte</a> |
+      <a href="https://fr.wikipedia.org/wiki/Grotta_di_Seiano" target="_blank">Wiki</a></li>
+
+    <li><strong>Parc Virgiliano</strong> : vue panoramique sublime.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8036&mlon=14.1761#map=17/40.8036/14.1761" target="_blank" class="bouton-carte">Voir sur la carte</a> |
+      <a href="https://fr.wikipedia.org/wiki/Parco_Virgiliano" target="_blank">Wiki</a></li>
+
+    <li><strong>Spaccanapoli</strong> : coeur historique vibrant.<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8475&mlon=14.2563#map=17/40.8475/14.2563" target="_blank" class="bouton-carte">Voir sur la carte</a> |
+      <a href="https://fr.wikipedia.org/wiki/Spaccanapoli" target="_blank">Wiki</a></li>
+
+    <li><strong>Métro Ligne 1 - Stations d'art</strong> (Toledo, Università).<br>
+      <a href="https://www.openstreetmap.org/?mlat=40.8433&mlon=14.2519#map=17/40.8433/14.2519" target="_blank" class="bouton-carte">Voir sur la carte</a> |
+      <a href="https://fr.wikipedia.org/wiki/Métro_de_Naples" target="_blank">Wiki</a></li>
+  </ul>
+</section>
+
+<section id="plan-metro">
+  <h2>Plan du métro de Naples</h2>
+  <p><a href="https://metromap.fr/wp-content/uploads/2021/01/Plan-metro-Naples.png" target="_blank" class="bouton-carte">🗺️ Voir le plan du métro</a></p>
+</section>
+<section id="carte">
+  <h2>Carte Interactive de Naples et Environs</h2>
+  <div id="map" style="height: 600px;"></div>
+</section>
+
+<script>
+  var map = L.map('map').setView([40.8518, 14.2681], 12);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  var lieux = [
+    { nom: "Grand Hotel Europa", coord: [40.8555, 14.2713] },
+    { nom: "Pompéi", coord: [40.7485, 14.4860] },
+    { nom: "Vésuve", coord: [40.8214, 14.4265] },
+    { nom: "Spaccanapoli", coord: [40.8475, 14.2563] },
+    { nom: "Piazza del Plebiscito", coord: [40.8357, 14.2486] },
+    { nom: "Galleria Umberto I", coord: [40.8383, 14.2487] },
+    { nom: "Teatro di San Carlo", coord: [40.8378, 14.2495] },
+    { nom: "Château de l’Œuf (Castel dell'Ovo)", coord: [40.8302, 14.2425] },
+    { nom: "Castel Nuovo", coord: [40.8389, 14.2540] },
+    { nom: "Via Toledo", coord: [40.8453, 14.2507] },
+    { nom: "Station Toledo (Métro Art)", coord: [40.8433, 14.2519] },
+    { nom: "Via San Gregorio Armeno", coord: [40.8510, 14.2597] },
+    { nom: "Santa Chiara", coord: [40.8472, 14.2556] },
+    { nom: "Eccellenze Campane (épicerie)", coord: [40.8486, 14.2669] },
+    { nom: "Caffè Gambrinus", coord: [40.8360, 14.2480] },
+    { nom: "Gran Caffè La Caffettiera", coord: [40.8345, 14.2356] },
+    { nom: "Concettina ai Tre Santi", coord: [40.8592, 14.2595] },
+    { nom: "Villa Comunale", coord: [40.8305, 14.2328] },
+    { nom: "Quartier de Chiaia", coord: [40.8337, 14.2362] },
+    { nom: "Via Partenope", coord: [40.8321, 14.2470] },
+    { nom: "Marché Pignasecca", coord: [40.8461, 14.2481] },
+    { nom: "Port de Naples (ferry Capri)", coord: [40.8395, 14.2654] },
+    { nom: "Catacombes de San Gennaro", coord: [40.8677, 14.2582] },
+    { nom: "Cimetière des Fontanelle", coord: [40.8626, 14.2497] },
+    { nom: "Grotta di Seiano", coord: [40.8176, 14.1907] },
+    { nom: "Parc Virgiliano", coord: [40.8036, 14.1761] },
+    { nom: "Parc archéologique de Baia", coord: [40.8219, 14.0812] },
+    { nom: "Île de Procida", coord: [40.7600, 14.0200] },
+    { nom: "Capri", coord: [40.5532, 14.2221] }
+  ];
+
+  lieux.forEach(function(lieu) {
+    L.marker(lieu.coord).addTo(map)
+      .bindPopup("<b>" + lieu.nom + "</b>");
+  });
+</script>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f7f7f7;
+    color: #333;
+  }
+
+  header, section {
+    padding: 40px 20px;
+    margin: 20px auto;
+    max-width: 1000px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+
+  header h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1d3557;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+
+  nav li {
+    display: inline-block;
+    margin: 10px 20px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #457b9d;
+    font-weight: bold;
+  }
+
+  section h2 {
+    color: #e63946;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  section p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  #map {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #999;
+  }
+
+  /* Adaptabilité mobile */
+  @media (max-width: 768px) {
+    header, section {
+      margin: 10px;
+      padding: 20px 10px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+<section id="fiche-pratique">
+  <h2>🛎️ Fiche pratique pour votre séjour</h2>
+  <ul>
+    <li><strong>Monnaie :</strong> Euro (€)</li>
+    <li><strong>Langue :</strong> Italien (anglais parfois parlé dans les zones touristiques)</li>
+    <li><strong>Électricité :</strong> 220V, prises de type F (compatibles françaises)</li>
+    <li><strong>Urgences :</strong> 112</li>
+    <li><strong>Numéros utiles :</strong> 
+      <ul>
+        <li>Police : 113</li>
+        <li>Pompiers : 115</li>
+        <li>Ambulance : 118</li>
+      </ul>
+    </li>
+    <li><strong>Transports en commun :</strong> 
+      <ul>
+        <li>Tickets uniques (métro, bus, funiculaire) : 1,20 €</li>
+        <li>Pass journée : 4,50 €</li>
+      </ul>
+    </li>
+    <li><strong>Plan du métro de Naples :</strong> 
+      👉 <a href="https://www.anm.it/images/stories/PDF/Mappa_Metropolitana_Napoli.pdf" target="_blank">Voir le plan du métro en PDF</a>
+    </li>
+    <li><strong>Météo en août :</strong> 
+      Températures moyennes : 26-32°C. Soleil majoritaire ☀️, possible humidité en fin de journée.
+    </li>
+    <li><strong>Taxes de séjour :</strong> 
+      2 à 3 € par personne/nuit selon l'hôtel.
+    </li>
+    <li><strong>Conseil :</strong> 
+      Ayez toujours de la petite monnaie pour les transports et achats dans les petites boutiques.
+    </li>
+  </ul>
+</section>
+<section id="carte">
+    <h2>🗺️ Carte interactive de votre séjour</h2>
+    <div id="map" style="height: 600px;"></div>
+  </section>
+  
+  <!-- OpenStreetMap + Leaflet + Plugin de routage -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+  
+  <script>
+    // Initialisation de la carte
+    var map = L.map('map').setView([40.8518, 14.2681], 12); // Naples
+  
+    // Ajout des tuiles OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+  
+    var userLocation = null;
+  
+    // Activation de la géolocalisation
+    map.locate({setView: true, maxZoom: 16});
+  
+    // Quand la position est trouvée
+    map.on('locationfound', function(e) {
+      userLocation = e.latlng;
+      L.marker(userLocation).addTo(map)
+        .bindPopup("Vous êtes ici !").openPopup();
+    });
+  
+    // En cas d'échec
+    map.on('locationerror', function() {
+      alert("Impossible de récupérer votre position.");
+    });
+  
+    // Liste des lieux
+    var lieux = [
+      {
+        nom: "Grand Hotel Europa",
+        coords: [40.8554, 14.2705],
+        lien: "https://www.grandhoteleuropa.com/"
+      },
+      {
+        nom: "Gare Centrale Napoli",
+        coords: [40.8530, 14.2750],
+        lien: "https://www.trenitalia.com/"
+      },
+      {
+        nom: "Spaccanapoli",
+        coords: [40.8493, 14.2588],
+        lien: "https://fr.wikipedia.org/wiki/Spaccanapoli"
+      },
+      {
+        nom: "Duomo de Naples",
+        coords: [40.8527, 14.2624],
+        lien: "https://fr.wikipedia.org/wiki/Cath%C3%A9drale_de_Naples"
+      },
+      {
+        nom: "Musée Archéologique National",
+        coords: [40.8554, 14.2496],
+        lien: "https://www.museoarcheologiconapoli.it/"
+      },
+      {
+        nom: "Castel dell'Ovo",
+        coords: [40.8300, 14.2454],
+        lien: "https://fr.wikipedia.org/wiki/Castel_dell%27Ovo"
+      },
+      {
+        nom: "Pompéi",
+        coords: [40.7497, 14.4869],
+        lien: "https://fr.wikipedia.org/wiki/Pomp%C3%A9i"
+      },
+      {
+        nom: "Procida",
+        coords: [40.7648, 14.0311],
+        lien: "https://fr.wikipedia.org/wiki/Procida"
+      },
+      {
+        nom: "Capri",
+        coords: [40.5532, 14.2220],
+        lien: "https://fr.wikipedia.org/wiki/Capri"
+      },
+      {
+        nom: "Galleria Umberto I",
+        coords: [40.8399, 14.2496],
+        lien: "https://fr.wikipedia.org/wiki/Galleria_Umberto_I"
+      },
+      {
+        nom: "Piazza del Plebiscito",
+        coords: [40.8356, 14.2478],
+        lien: "https://fr.wikipedia.org/wiki/Piazza_del_Plebiscito"
+      },
+      {
+        nom: "Mercato di Porta Nolana",
+        coords: [40.8485, 14.2769],
+        lien: "https://napolike.it/mercato-porta-nolana-napoli"
+      },
+      {
+        nom: "Épicerie Eccellenze Campane",
+        coords: [40.8422, 14.2661],
+        lien: "https://www.eccellenzecampane.it/"
+      }
+    ];
+  
+    // Ajout des marqueurs
+    lieux.forEach(function(lieu) {
+      var marker = L.marker(lieu.coords).addTo(map);
+      marker.bindPopup("<b>" + lieu.nom + "</b><br><a href='" + lieu.lien + "' target='_blank'>Plus d'infos</a><br><a href='#' onclick='routeVers([" + lieu.coords + "]);return false;'>Itinéraire jusqu'ici</a>");
+    });
+  
+    var control = null;
+  
+    // Fonction pour calculer un itinéraire depuis la position de l'utilisateur
+    function routeVers(destination) {
+      if (userLocation == null) {
+        alert("Votre position n'est pas disponible !");
+        return;
+      }
+      if (control != null) {
+        map.removeControl(control);
+      }
+      control = L.Routing.control({
+        waypoints: [
+          L.latLng(userLocation.lat, userLocation.lng),
+          L.latLng(destination[0], destination[1])
+        ],
+        routeWhileDragging: false,
+        show: true,
+        draggableWaypoints: false,
+        addWaypoints: false,
+        createMarker: function() { return null; }, // Pas de marqueurs supplémentaires
+        language: 'fr'
+      }).addTo(map);
+    }
+  </script>
+  
